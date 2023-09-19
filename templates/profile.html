@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title_block %} Home {% endblock %}
+{% block body %}
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <h1>Your Profile</h1>
+    {% if user.profile_picture.image.url %}
+    <img class="rounded-circle account-img" style="width: 80px; height: 80px" src="{{ user.profile_picture.image.url }}">
+
+    <br>
+    <br>
+    <a href="{% url 'App_Login:change_profile_pic' %}" class="btn btn-info btn-sm">Change profile Pic</a>
+
+    {% else %}
+    <img src="/media/profile_pics/1.jpg " class="rounded-circle" width="100px">
+    <br>
+    <br>
+    <br>
+    <a href="{% url 'App_Login:add_profile_pic' %}" class="btn btn-info btn-sm">Upload Profile</a>
+
+    {% endif %}
+    <br>
+    <br>
+
+    <p>Username: {{ user.username }}</p>
+    <p>Email: {{ user.email }}</p>
+    <p> Name: {{ user.first_name }} {{ user.last_name }}</p>
+    <br>
+    <br>
+
+    <a href="{% url 'App_Login:user_chance' %}" class="btn btn-warning btn-sm">Change Profile Info</a>
+
+{% endblock %}

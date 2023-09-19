@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title_block %} Home {% endblock %}
+{% block body %}
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <h1>Change your Profile:</h1>
+    <form method="POST">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <button type="submit" class="btn btn-warning btn-sm">Change</button>
+    <a href="{% url 'App_Login:pass_change' %}" class="btn btn-warning btn-sm">Change Password</a>
+
+
+    </form>
+
+{% endblock %}

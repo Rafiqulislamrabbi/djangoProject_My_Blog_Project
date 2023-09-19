@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title_block %} Home {% endblock %}
+{% block body %}
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+    <h1>This is Blog Page</h1>
+    {% for blog in blogs %}
+        <h2>{{ blog.blog_title }}</h2>
+        <i><h6>{{ blog.publish_date }}</h6></i>
+
+        <div class="col-sm-4">
+        <img  src="{{ blog.blog_image.url }}" alt="{{ blog.blog_title }}" title="{{ blog.blog_title }}" width="100%">
+
+        </div>
+        <div class="col-sm-8">
+        <p>{{ blog.blog_content|linebreaks }} <a href="{% url 'App_Blog:blog_details' slug=blog.slug %}">Read More</a></p>
+        <h6>Posted By : <a href="">@{{ blog.author}}</a></h6>
+        <h6>{{ blog.like.count }} Likes {{ blog.blog_comment.count }} Counts</h6>
+
+        </div>
+
+
+    {% endfor %}
+
+{% endblock %}

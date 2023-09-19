@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title_block %} {{ blog.blog_title }} {% endblock %}
+{% block body %}
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <h1>Edit Your Blog</h1>
+
+{#    {% if blog.author==user %}#}
+    <form method="POST">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <button type="submit" name="button">Update</button>
+{#    {% else %}#}
+{#    <p>You are not allow to update this page</p>#}
+    </form>
+{#    {% endif %}#}
+
+{% endblock %}

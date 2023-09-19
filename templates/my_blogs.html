@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title_block %} {{ user }} {% endblock %}
+{% block body %}
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <h1>My Bloges</h1>
+    {% for blog in user.post_author.all %}
+    <h3>{{ blog.blog_title }}</h3>
+    <h3>{{ blog.publish_date }}</h3>
+    <div class="col-sm-4">
+    <img  src="{{ blog.blog_image.url }}" width="100%">
+
+    </div>
+    <div>
+        <p>{{ blog.blog_content|linebreaks }}</p>
+        <a href="{% url 'App_Blog:blog_details' slug=blog.slug %}"> Read More</a>
+    </div>
+    <a href="{% url 'App_Blog:edit_blog' pk=blog.pk %}">Edit</a>
+    <hr>    
+    {% endfor %}
+
+{% endblock %}
