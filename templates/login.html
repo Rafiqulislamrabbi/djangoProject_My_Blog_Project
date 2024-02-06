@@ -3,13 +3,13 @@
 {% block body %}
     {% load static %}
 
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
 
     <h1>Login Here</h1>
 
     <form method="POST">
-    {{ form.as_p }}
-    {% csrf_token %}
-    <button type="submit" class="btn btn-primary btn-sm">Login</button>
+        {{ form.as_p }}
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary btn-sm">Login</button>
 
 {% endblock %}

@@ -4,7 +4,14 @@ from django.contrib.auth.models import User
 from App_Login.models import Profile
 from django.forms import ModelForm
 class SignUpForm(UserCreationForm):
-    email=forms.EmailField(label='Email Address', required=True)
+    username = forms.CharField(required=True, label="", widget=forms.TextInput(attrs={'placeholder': 'Username'}))
+
+    email = forms.EmailField(required=True, label="", widget=forms.TextInput(attrs={'placeholder': 'Email'}))
+
+    password1 = forms.CharField(required=True, label="",
+                                widget=forms.PasswordInput(attrs={'placeholder': 'Enter Password'}))
+    password2 = forms.CharField(required=True, label="",
+                                widget=forms.PasswordInput(attrs={'placeholder': 'Confirm Password'}))
     class meta:
         model=User
         fields=('username','email','password1','password2')

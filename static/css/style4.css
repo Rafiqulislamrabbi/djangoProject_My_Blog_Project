@@ -1,0 +1,42 @@
+/* Add this CSS in a file named blog_details.css or include it within a <style> tag */
+
+.blog-details-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.blog-details-left {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.blog-details-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.blog-image {
+    margin-top: 30%;
+    width: 100%;
+}
+
+.like-comment-container {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.comment-form-container {
+    margin-top: 50px;
+}
+
+.comments-section {
+    margin-top: 20px;
+}
+
+.comment {
+    margin-bottom: 10px;
+}
